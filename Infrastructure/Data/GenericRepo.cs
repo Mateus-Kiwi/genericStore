@@ -1,4 +1,5 @@
 
+using System.Net.Security;
 using Core.Entitites;
 using Core.Interfaces;
 using Core.Specifications;
@@ -39,4 +40,4 @@ namespace Infrastructure.Data
             return SpecEvaluator<T>.GetQuery(_context.Set<T>().AsQueryable(), spec);
         }
     }
-}
+} 

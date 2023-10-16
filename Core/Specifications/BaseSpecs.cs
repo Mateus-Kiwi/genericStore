@@ -8,6 +8,10 @@ namespace Core.Specifications
 {
     public class BaseSpecs<T> : ISpecs<T>
     {
+        public BaseSpecs()
+        {
+        }
+
         public BaseSpecs(Expression<Func<T, bool>> criteria)
         {
             Criteria = criteria;
