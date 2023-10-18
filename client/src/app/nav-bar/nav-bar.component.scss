@@ -1,0 +1,57 @@
+.banner
+{
+    background-color: #e8cfac;
+}
+.cart-no
+{
+    position: absolute;
+    font-size: 12px;
+    border-radius: 50%;
+    color: #e8cfac;
+    text-align: center;
+    top: 3px;
+    right: 32px;
+}
+.cart-icon-container
+{
+    position: relative;
+    display: inline-block;
+    align-content: center;
+    
+}
+.nav-item 
+{
+    float: left;
+    display: block; 
+    color: #413632; 
+    text-align: center;
+    padding: 14px 16px; 
+    text-decoration: none;
+}
+.nav-item:hover
+{
+    color: #fff;
+}
+.nav-bar 
+{
+    flex: content;
+    flex-direction: row;
+}
+.fa
+{
+    color: #413632;
+}
+.fa:hover
+{
+    color: #fff;
+}
+.btn
+{
+    color: #fff;
+    background-color: #413632;
+}
+.btn:hover 
+{
+    color: #413632;
+    background-color: #fff;
+}
