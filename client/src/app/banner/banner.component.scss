@@ -1,0 +1,29 @@
+.banner {
+    position: relative;
+    background-color: #e8cfac;
+    overflow: hidden; 
+    min-height: 700px;
+    max-height: 700px;
+}
+.cara-banner {
+    position: absolute;
+    min-height: 1200px;
+    z-index: 1;
+    left: 1200px;
+    top: 50px;
+}
+.text1 {
+    font-size: 400px;
+    z-index: 0;
+    font-weight: bold;
+    color: #c7a77b;
+    letter-spacing: -20px;
+    margin-bottom: -160px;
+}
+.text2 {
+    font-size: 330px;
+    z-index: 0;
+    font-weight: bold;
+    color: #876b51;
+    letter-spacing: -10px;
+}
