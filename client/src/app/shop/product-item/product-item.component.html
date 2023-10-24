@@ -1,7 +1,7 @@
 <div class="card h-100 shadow-sm" *ngIf="product">
-    <img src="{{product.pictureUrl}}" alt="{{product.name}}">
+    <img src="{{product.pictureUrl}}" alt="{{product.name}}" routerLink="/shop/{{product.id}}">
     <div class="card-body d-flex flex-column">
-        <a href="" class="text-decoration-none text-black">
+        <a class="text-decoration-none text-black" routerLink="/shop/{{product.id}}">
             <h6 class=""> {{product.name}} </h6>
         </a>
         <span class="mb-2">

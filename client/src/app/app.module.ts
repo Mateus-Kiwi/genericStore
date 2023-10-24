@@ -6,7 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { BannerComponent } from './banner/banner.component'
 import { CoreModule } from './core/core.module';
-import { ShopModule } from './shop/shop.module';
+import { HomeModule } from './home/home.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -19,8 +20,10 @@ import { ShopModule } from './shop/shop.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    RouterModule,
     CoreModule,
-    ShopModule,
+    HomeModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
