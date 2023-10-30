@@ -42,8 +42,9 @@
     background-color: #413632;
 }
 .btn:hover {
+    outline: solid 1px #413632;
     color: #413632;
-    background-color: #fff;
+    background-color: transparent;
 }
 a {
     text-decoration: none;

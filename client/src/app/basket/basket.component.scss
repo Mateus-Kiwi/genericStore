@@ -1,0 +1,18 @@
+i {
+    color: #413632;
+    margin-top: 7px;
+}
+i:hover{
+    color: #e8cfac;
+    cursor: pointer;
+}
+.btn{
+    background-color: #413632;
+    color: #fff;
+    outline: none;
+}
+.btn:hover{
+    color: #413632;
+    outline: solid 1px #413632;
+    background-color: transparent;
+}

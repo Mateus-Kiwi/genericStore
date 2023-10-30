@@ -3,12 +3,15 @@ i {
 }
 i:hover{
     color: #e8cfac;
+    cursor: pointer;
 }
 button{
-    outline: solid 1px #413632;
-    color: #413632;
-}
-button:hover{
     background-color: #413632;
     color: #fff;
+    
+}
+button:hover{
+    background-color: transparent;
+    outline: solid 1px #413632;
+    color: #413632;
 }

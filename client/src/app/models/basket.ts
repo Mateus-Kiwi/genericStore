@@ -1,9 +1,4 @@
 import * as cuid from "cuid"
-
-export interface RootObject {
-    id: string
-    items: BasketItem[]
-  }
   
   export interface BasketItem {
     id: number
@@ -14,8 +9,19 @@ export interface RootObject {
     brand: string
     type: string
   }
+
+  export interface RootObject {
+    id: string
+    items: BasketItem[]
+  }
   
   export class Basket implements Basket {
     id = cuid();
     items: BasketItem[] = [];
+  }
+
+  export interface BasketTotals{
+    shipping: number;
+    subtotal: number;
+    total: number;
   }
