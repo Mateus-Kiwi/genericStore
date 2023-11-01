@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-center mt-5 align-items-center" style="height: 780px; ">
+    <div class="col-3">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="text-center mb-4">
+                <h1 class="mb-3">Sign in</h1>
+            </div>
+            <div class="centered-div">
+            
+              <app-text-input [formControl]="registerForm.controls['displayName']" [label]="'Display name'"></app-text-input>
+              <app-text-input [formControl]="registerForm.controls['email']" [label]="'Email'"></app-text-input>
+              <app-text-input [formControl]="registerForm.controls['password']" [type]="'password'" [label]="'Password'"></app-text-input>
+
+              
+              <div class="d-grid">
+                <button [disabled]="registerForm.invalid" class="btn btn-lg mt-3" type="submit">Sign in</button>
+              </div>
+            </div>
+        </form>
+    </div>
+   
+</div>
+

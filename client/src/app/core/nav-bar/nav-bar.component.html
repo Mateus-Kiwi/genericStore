@@ -19,7 +19,23 @@
                 {{getCount(basket.items)}}
             </div>
         </a>
-        <a href="" class= " btn  px-3">Login</a>
+        <ng-container *ngIf="(accountService.currentUser$ | async) === null">
+            <a routerLink="/account/login" class= " btn  px-3">Login</a>
+        </ng-container>
+        <ng-container *ngIf="accountService.currentUser$ | async as user">
+            <div class="btn-group" dropdown>
+                <button id="button-animated" dropdownToggle type="button" class="btn dropdown-toggle " aria-controls="dropdown-animated" style="background-color: transparent; color: #413632;">
+                  {{user.displayName}} <span class="caret"></span>
+                </button>
+                <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right"
+                    role="menu" aria-labelledby="button-animated">
+                    <li role="menuitem"><a class="dropdown-item" ><i class="fa fa-user"></i> My account</a></li>
+                    <li role="menuitem"><a class="dropdown-item" ><i class="fa fa-question-circle"></i> My orders</a></li>
+                    <li role="menuitem"><a (click)="accountService.logout()" class="dropdown-item" routerLink="/"><i class="fa fa-sign-out"></i> Logout here</a></li>
+                </ul>
+              </div>
+        </ng-container>
+        
     </div>
 </header>
 

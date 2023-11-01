@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     CoreModule,
     HomeModule,
     CarouselModule.forRoot(),
+    BsDropdownModule.forRoot(),
     
   ],
   providers: [

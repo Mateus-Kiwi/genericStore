@@ -1,0 +1,22 @@
+.btn{
+    background-color: #413632;
+    color: #fff;
+    outline: none;
+}
+.btn:hover{
+    color: #413632;
+    background-color: transparent;
+    outline: solid 1px #413632;
+}
+.btn-signin{
+    font-size: large;
+    opacity: 60%;
+    margin: 10px;
+    color: #413632;
+    border: none;
+    background-color: transparent;
+    transition: 0.3s;
+}
+.btn-signin:hover{
+    opacity: 100%;
+}
