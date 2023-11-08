@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace API.Helpers
 {
-    public class ProductUrlRes : IValueResolver<Product, ProductRetDTO, string>
+    public class ProductUrlRes : IValueResolver<Product, ProductRetDTO, string >
     {
         private readonly IConfiguration _config;
         public ProductUrlRes(IConfiguration config)
