@@ -1,0 +1,22 @@
+.btn{
+    background-color: #413632;
+    color: #fff;
+    outline: none;
+    transition: 0.3s;
+}
+.btn:hover{
+    color: #413632;
+    outline: solid 1px #413632;
+    background-color: transparent;
+}
+.btn2{
+    background-color: transparent;
+    color: #413632;
+    outline: solid 1px #413632;
+    transition: 0.3s;
+}
+.btn2:hover{
+    color: #fff;
+    outline: solid 1px #413632;
+    background-color: #413632;
+}

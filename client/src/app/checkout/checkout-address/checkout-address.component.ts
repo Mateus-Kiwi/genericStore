@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-checkout-address',
@@ -7,5 +7,10 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./checkout-address.component.scss']
 })
 export class CheckoutAddressComponent {
+  loginForm = new FormGroup ({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required,]),
+  })
+
   @Input() checkoutForm?: FormGroup;
 }

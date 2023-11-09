@@ -10,7 +10,7 @@ export class TextInputComponent implements ControlValueAccessor {
   @Input() type = 'text';
   @Input() label = '';
 
-  constructor(@Self() public controlDir: NgControl){
+  constructor(@Self() private controlDir: NgControl){
     this.controlDir.valueAccessor = this;
   } 
 
