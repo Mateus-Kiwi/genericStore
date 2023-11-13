@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { AccountService } from 'src/app/account/account.service';
 
 @Component({
   selector: 'app-checkout-address',
@@ -7,10 +9,22 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./checkout-address.component.scss']
 })
 export class CheckoutAddressComponent {
+  
   loginForm = new FormGroup ({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required,]),
   })
 
   @Input() checkoutForm?: FormGroup;
+
+  constructor(private accountService: AccountService, private toastr: ToastrService){}
+
+  saveUserAddress(){
+    this.accountService.updateUserAddress(this.checkoutForm?.get('addressForm')?.value).subscribe({
+      next: () => {
+        this.toastr.success('Address saved');
+        
+      }
+    })
+  }
 }
