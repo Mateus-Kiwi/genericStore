@@ -15,7 +15,8 @@ const routes: Routes = [
   {path: 'basket', loadChildren: () => import ('./basket/basket.module').then(m => m.BasketModule)},
   {path: 'checkout', canActivate: [AuthGuard], loadChildren: () => import ('./checkout/checkout.module').then(m => m.CheckoutModule)},
   {path: 'account', loadChildren: () => import ('./account/account.module').then(m => m.AccountModule)},
-  {path: '**', redirectTo: '', pathMatch: 'full'},
+  {path: 'orders',canActivate: [AuthGuard],loadChildren: () => import('./orders/orders.module').then(mod => mod.OrdersModule)},
+  {path: '**', redirectTo: 'not-found', pathMatch: 'full' }
 ];
 
 @NgModule({

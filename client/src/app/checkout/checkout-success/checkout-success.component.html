@@ -2,5 +2,10 @@
     <div><i class="fa fa-check-circle fa-5x" style="color: #413632;"></i></div>
     <h2>Thank you for your purchase!</h2>
     <p>XDDDDDDDDDDDDDD</p>
-    <button class="btn btn-outline-success" >View your order</button>
+    <button *ngIf="order" routerLink="/orders/{{order.id}}" class="btn btn-outline-success">
+        View your order
+    </button>
+    <button *ngIf="!order" routerLink="/orders" class="btn btn-outline-success">
+        View your orders
+    </button>
 </div>

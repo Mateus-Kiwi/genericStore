@@ -15,10 +15,12 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    BannerComponent
+    BannerComponent,
+    
   ],
   imports: [
     BrowserModule,
