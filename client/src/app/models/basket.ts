@@ -10,14 +10,19 @@ import * as cuid from "cuid"
     type: string
   }
 
-  export interface RootObject {
-    id: string
-    items: BasketItem[]
+  export interface Basket {
+    id: string;
+    items: BasketItem[];
+    clientSecret?: string;
+    paymentIntentId?: string;
+    deliveryMethodId?: number;
+    shippingPrice: number
   }
   
   export class Basket implements Basket {
     id = cuid();
     items: BasketItem[] = [];
+    shippingPrice = 0;
   }
 
   export interface BasketTotals{
