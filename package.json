@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@stripe/stripe-js": "^2.1.11",
     "mkcert": "^3.1.0"
   }
 }
