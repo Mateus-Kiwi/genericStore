@@ -13,6 +13,17 @@
 .filter {
     color: #413632;
 }
+.list-group-item{
+    cursor: pointer;
+    border: none;
+
+    &:not(.active):hover {
+        background-color: #f1f1f1;
+        border-radius: 10px;
+    }
+}
 .list-group-item.active{
     background-color: #413632;
+    border: none;
+    border-radius: 10px;
 }
