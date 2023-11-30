@@ -94,7 +94,8 @@ namespace Infrastructure.Data.Migrations
                     Price = table.Column<decimal>(type: "numeric(18,2)", nullable: false),
                     PictureUrl = table.Column<string>(type: "text", nullable: false),
                     ProductTypeId = table.Column<int>(type: "integer", nullable: false),
-                    ProductBrandId = table.Column<int>(type: "integer", nullable: false)
+                    ProductBrandId = table.Column<int>(type: "integer", nullable: false),
+                    QuantityStock = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {

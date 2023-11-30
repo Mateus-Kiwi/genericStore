@@ -136,6 +136,9 @@ namespace Infrastructure.Data.Migrations
                     b.Property<int>("ProductTypeId")
                         .HasColumnType("integer");
 
+                    b.Property<int>("QuantityStock")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ProductBrandId");
