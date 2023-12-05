@@ -12,5 +12,6 @@ namespace API.DTOs
         public string PictureUrl { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }
+        public int QuantityStock { get; set; }
     }
 }

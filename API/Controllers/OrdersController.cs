@@ -21,8 +21,10 @@ namespace API.Controllers
     {
         private readonly IOrderService _orderService;
         private readonly IMapper _mapper;
+
         public OrdersController(IOrderService orderService, IMapper mapper)
         {
+
             _mapper = mapper;
             _orderService = orderService;
         }
@@ -38,6 +40,12 @@ namespace API.Controllers
 
             if(order == null) return BadRequest(new ApiResponse(400, "Problem creating order"));
 
+            var order1 = await _orderService.GetOrderAsync(email);
+
+            foreach(var item in order1.OrderItems)
+            {
+                Console.WriteLine(item.QuantityStock);
+            }
             return Ok(order);
         }
 

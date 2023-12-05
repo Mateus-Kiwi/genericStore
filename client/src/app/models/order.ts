@@ -34,5 +34,6 @@ export interface Order {
     pictureUrl: any
     price: number
     quantity: number
+    quantityStock: number
   }
   

@@ -33,7 +33,7 @@ namespace Infrastructure.Services
 
                 var itemOrdered = new ProductItemOrdered(productItem.Id, productItem.Name, productItem.PictureUrl);
 
-                var orderItem = new OrderItem(itemOrdered, productItem.Price, item.Quantity);
+                var orderItem = new OrderItem(itemOrdered, productItem.Price, item.Quantity, item.QuantityStock);
 
                 items.Add(orderItem);
             }
@@ -74,6 +74,13 @@ namespace Infrastructure.Services
         public async Task<IReadOnlyList<DeliveryMethod>> GetDeliveryMethodsAsync()
         {
             return await _unitOfWork.Repository<DeliveryMethod>().ListAllAsync();
+        }
+
+        public async Task<Order> GetOrderAsync(string buyerEmail)
+        {
+            var spec = new OrderSpec(buyerEmail);
+
+            return await _unitOfWork.Repository<Order>().GetEntityWithSpec(spec);
         }
 
         public async Task<Order> GetOrderByIdAsync(int id, string buyerEmail)
