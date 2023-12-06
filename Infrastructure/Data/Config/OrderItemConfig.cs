@@ -17,6 +17,9 @@ namespace Infrastructure.Data.Config
 
             builder.Property(i => i.Price)
                 .HasColumnType("decimal(18,2)");
+
+            builder.Property(i => i.QuantityStock);
+                
         }
     }
 }

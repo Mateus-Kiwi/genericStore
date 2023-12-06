@@ -46,6 +46,10 @@ namespace Infrastructure.Services
                 {
                     item.Price = productItem.Price;
                 }
+                if(item.QuantityStock != productItem.QuantityStock)
+                {
+                    item.QuantityStock = productItem.QuantityStock;
+                }
             }
 
             var service = new PaymentIntentService();

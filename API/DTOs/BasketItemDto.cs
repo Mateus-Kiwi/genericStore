@@ -19,6 +19,9 @@ namespace API.DTOs
         [Range(1, double.MaxValue, ErrorMessage = "Quantity can't be lower than 1")]
         public int Quantity  { get; set; }
         [Required]
+        // [Range(1, double.MaxValue, ErrorMessage = "Not in stock")]
+        public int QuantityStock  { get; set; }
+        [Required]
         public string PictureUrl { get; set; }  
         [Required]
         public string Brand { get; set; }

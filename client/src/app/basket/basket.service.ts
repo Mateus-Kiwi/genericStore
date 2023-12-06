@@ -64,7 +64,7 @@ export class BasketService {
 
     if (this.isProduct(item)) item = this.mapProductToBasket(item);
     const basket = this.getCurrentBasketValue() ?? this.createBasket();
-    basket.items = this.addOrUpdateItem(basket.items, item, quantity);
+    basket.items = this.addOrUpdateItem(basket.items, item, quantity, item.quantityStock);
     this.setBasket(basket);
   }
 
@@ -96,7 +96,7 @@ export class BasketService {
     localStorage.removeItem('basket_id')
   }
 
-  addOrUpdateItem(items: BasketItem[], itemToAdd: BasketItem, quantity: number): BasketItem[] {
+  addOrUpdateItem(items: BasketItem[], itemToAdd: BasketItem, quantity: number, quantityStock: number): BasketItem[] {
     const item = items.find(x => x.id === itemToAdd.id);
     if (item) item.quantity += quantity;
     else {
@@ -118,6 +118,7 @@ export class BasketService {
       productName: item.name,
       price: item.price,
       quantity: 0,
+      quantityStock: item.quantityStock,
       pictureUrl: item.pictureUrl,
       brand: item.productBrand,
       type: item.productType

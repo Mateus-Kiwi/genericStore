@@ -5,6 +5,7 @@ import * as cuid from "cuid"
     productName: string
     price: number
     quantity: number
+    quantityStock: number
     pictureUrl: string
     brand: string
     type: string
