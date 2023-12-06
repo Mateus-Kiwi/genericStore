@@ -13,6 +13,7 @@ export class ProductItemComponent {
   constructor(private basketService: BasketService){}
 
   addItemToBasket(){
+    if(this.product !== undefined && this.product.quantityStock !== undefined && this.product.quantityStock > 0)
     this.product && this.basketService.addToBasket(this.product);
   }
 }
