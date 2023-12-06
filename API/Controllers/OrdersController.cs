@@ -10,6 +10,7 @@ using API.Extensions;
 using AutoMapper;
 using Core.Entitites.OrderAggregate;
 using Core.Interfaces;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -21,9 +22,11 @@ namespace API.Controllers
     {
         private readonly IOrderService _orderService;
         private readonly IMapper _mapper;
+        private readonly StoreContext _dbContext;
 
-        public OrdersController(IOrderService orderService, IMapper mapper)
+        public OrdersController(IOrderService orderService, IMapper mapper, StoreContext dbContext)
         {
+            _dbContext = dbContext;
 
             _mapper = mapper;
             _orderService = orderService;
@@ -38,14 +41,26 @@ namespace API.Controllers
 
             var order = await _orderService.CreateOrderAsync(email, orderDto.DeliveryMethodId, orderDto.basketId, address);
 
-            if(order == null) return BadRequest(new ApiResponse(400, "Problem creating order"));
+            if (order == null) return BadRequest(new ApiResponse(400, "Problem creating order"));
 
             var order1 = await _orderService.GetOrderAsync(email);
 
-            foreach(var item in order1.OrderItems)
+            foreach (var item in order1.OrderItems)
             {
-                Console.WriteLine(item.QuantityStock);
+                var product = await _dbContext.Products.FindAsync(item.ItemOrdered.ProductItemId);
+
+                if (product != null)
+                {
+                    product.QuantityStock -= item.Quantity;
+                }
+                else
+                {
+                    // Lide com a situação em que o produto não é encontrado.
+                    return NotFound($"Product with ID {item.Id} not found.");
+                }
             }
+
+            await _dbContext.SaveChangesAsync();
             return Ok(order);
         }
 
@@ -65,16 +80,16 @@ namespace API.Controllers
             var email = HttpContext.User.RetrieveEmailFromPrincipal();
 
             var order = await _orderService.GetOrderByIdAsync(id, email);
-            
+
             if (order == null) return NotFound(new ApiResponse(404));
-            
+
             return _mapper.Map<OrderToReturnDto>(order);
         }
- 
+
         [HttpGet("deliveryMethods")]
         public async Task<ActionResult<IReadOnlyList<DeliveryMethod>>> GetDeliveryMethods()
         {
             return Ok(await _orderService.GetDeliveryMethodsAsync());
         }
-    } 
+    }
 }
