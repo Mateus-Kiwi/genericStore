@@ -60,14 +60,7 @@ export class ShopService {
     return this.shopParams;
   }
 
-  getProduct(id: number) {
-    const product = [...this.productCache.values()]
-    .reduce((acc, paginatedResult) => {
-      return {...acc, ...paginatedResult.data.find(x => x.id === id)}
-    }, {} as Product)
-
-    if (Object.keys(product).length !== 0) return of(product);
-
+  getProduct(id: number): Observable<Product> {
     return this.http.get<Product>(this.baseUrl + 'products/' + id);
   }
 
