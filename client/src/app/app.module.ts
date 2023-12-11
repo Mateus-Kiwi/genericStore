@@ -13,6 +13,7 @@ import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
+import { ChatComponent } from './chat/chat.component';
 
 
 
@@ -20,6 +21,7 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
   declarations: [
     AppComponent,
     BannerComponent,
+    
     
   ],
   imports: [

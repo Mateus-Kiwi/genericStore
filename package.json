@@ -1,6 +1,12 @@
 {
   "dependencies": {
     "@stripe/stripe-js": "^2.1.11",
-    "mkcert": "^3.1.0"
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mkcert": "^3.1.0",
+    "nodemon": "^3.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }
