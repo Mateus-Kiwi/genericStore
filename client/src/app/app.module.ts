@@ -13,7 +13,8 @@ import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
-import { ChatComponent } from './chat/chat.component';
+
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -25,14 +26,16 @@ import { ChatComponent } from './chat/chat.component';
     
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule,
-    CoreModule,
+    
     HomeModule,
     CarouselModule.forRoot(),
+    CoreModule,
     BsDropdownModule.forRoot(),
     
   ],
