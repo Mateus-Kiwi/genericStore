@@ -17,7 +17,8 @@ export class ChatComponent implements OnInit {
   user?: User
   message = '';
   messages: ChatMessage[] = [];
-  username = this.user?.displayName
+  // username = this.user?.displayName
+  username = ''
 
   constructor(private http: HttpClient) {
 

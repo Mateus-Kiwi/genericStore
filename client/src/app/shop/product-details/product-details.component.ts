@@ -54,7 +54,7 @@ export class ProductDetailsComponent implements OnInit{
         const itemsToAdd = this.quantity - this.quantityInBasket;
         this.quantityInBasket += itemsToAdd;
         this.basketService.addToBasket(this.product,itemsToAdd)
-      } else{
+      } else{ 
         const itemsToRemove = this.quantityInBasket - this.quantity;
         this.quantityInBasket -= itemsToRemove;
         this.basketService.removeFromBasket(this.product.id, itemsToRemove);
