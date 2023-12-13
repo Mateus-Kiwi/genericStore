@@ -15,6 +15,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 
 import { FormsModule } from '@angular/forms';
+import { ChatComponent } from './chat/chat.component';
 
 
 
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     BannerComponent,
+    ChatComponent,
     
     
   ],
