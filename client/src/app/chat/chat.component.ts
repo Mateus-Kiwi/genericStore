@@ -38,10 +38,13 @@ export class ChatComponent implements OnInit {
   }
 
   submit(): void {
-    this.http.post('https://localhost:5001/api/messages', {
-      username: this.username,
-      message: this.message
-    }).subscribe(() => this.message = '');
+    const trimmedMessage = this.message.trim();
+    
+    if (trimmedMessage !== '') {
+      this.http.post('https://localhost:5001/api/messages', {
+        username: this.username,
+        message: this.message
+      }).subscribe(() => this.message = '');
+    }
   }
-
 }

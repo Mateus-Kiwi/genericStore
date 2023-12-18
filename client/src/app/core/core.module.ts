@@ -9,11 +9,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { SectionHeaderComponent } from './section-header/section-header.component';
 import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
 import { SharedModule } from '../shared/shared.module';
+import { FooterComponent } from '../footer/footer.component';
 
 
 
 @NgModule({
   declarations: [
+    
     NavBarComponent,
     TestErrorComponent,
     NotFoundComponent,
@@ -31,6 +33,7 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   exports: [
+    
     NavBarComponent,
     NgxSpinnerModule
   ]

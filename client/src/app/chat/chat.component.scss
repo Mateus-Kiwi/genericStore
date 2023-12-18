@@ -1,3 +1,41 @@
+.container{
+    width: 15%;
+    height: 30%;
+}
 .scrollarea{
-    min-height: 720px;
+    margin-bottom: 10px;
+    height: 30vh;
+    width: 100%;
+    overflow-y: scroll; 
+}
+
+div{
+    
+    background-color: #fff;
+    border: none;
+    border-bottom: none;
+}
+
+.msg{
+    max-width: 100%;
+    word-wrap: break-word; 
+    width: fit-content;
+    
+    height: fit-content;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    background-color: #413632 ;
+    color: #fff;
+}
+.usrnm{
+    height: fit-content;
+    width: fit-content;
+    color: #413632;
+}
+input {
+    border: solid 2px #413632;
+    border-radius: 10px;
+    padding: 10px;
 }

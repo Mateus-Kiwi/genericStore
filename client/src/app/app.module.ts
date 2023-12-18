@@ -16,6 +16,7 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 
 import { FormsModule } from '@angular/forms';
 import { ChatComponent } from './chat/chat.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -24,6 +25,7 @@ import { ChatComponent } from './chat/chat.component';
     AppComponent,
     BannerComponent,
     ChatComponent,
+    FooterComponent,
     
     
   ],
