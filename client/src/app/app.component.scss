@@ -1,4 +1,17 @@
 body {
     padding: 30px;
-    
+}
+.chat{
+   
+    position: fixed;
+    bottom: 25px;
+    right: 25px; 
+    z-index: 1050;
+    border-radius: 10px;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app-nav-bar {
+    position: relative;
 }

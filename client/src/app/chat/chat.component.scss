@@ -1,21 +1,31 @@
 .container{
-    width: 15%;
-    height: 30%;
+    padding: 15px;
+    border: solid 2px #413632;
+    border-radius: 25px;
+    width: fit-content;
+    height: fit-content;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .scrollarea{
     margin-bottom: 10px;
     height: 30vh;
-    width: 100%;
+    width: 280px;
     overflow-y: scroll; 
 }
 
 div{
     
-    background-color: #fff;
+    
     border: none;
     border-bottom: none;
 }
-
+.userinput{
+    width: 260px;
+}
+.form-control{
+    width: 280px;
+}
 .msg{
     max-width: 100%;
     word-wrap: break-word; 
@@ -35,7 +45,8 @@ div{
     color: #413632;
 }
 input {
-    border: solid 2px #413632;
+    border: none;
+    background-color: #f6f6f6;
     border-radius: 10px;
     padding: 10px;
 }
