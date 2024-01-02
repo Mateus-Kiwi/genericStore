@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using API.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using PusherServer;
@@ -27,8 +23,10 @@ namespace API.Controllers
               "bed219a1e59d8813433d",
               options);
 
+            var channelName = $"suporte-{messageDto.Username}";
+
             await pusher.TriggerAsync(
-              "chat",
+              channelName,
               "message",
               new
               {

@@ -1,7 +1,6 @@
 using API.DTOs;
 using AutoMapper;
 using Core.Entitites;
-using Microsoft.Extensions.Configuration;
 
 namespace API.Helpers
 {

@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Core.Entitites;
 using Core.Entitites.OrderAggregate;
 using Core.Interfaces;
 using Core.Specifications;
-using Microsoft.AspNetCore.Identity;
 
 namespace Infrastructure.Services
 {
