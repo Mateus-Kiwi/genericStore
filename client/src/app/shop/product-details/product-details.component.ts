@@ -50,7 +50,7 @@ export class ProductDetailsComponent implements OnInit{
 
   updateBasket(){
     if (this.product && this.product !== undefined && this.product.quantityStock !== undefined && this.product.quantityStock > 0){
-      if(this.quantity > this.quantityInBasket ){
+      if(this.quantity > this.quantityInBasket){
         const itemsToAdd = this.quantity - this.quantityInBasket;
         this.quantityInBasket += itemsToAdd;
         this.basketService.addToBasket(this.product,itemsToAdd)

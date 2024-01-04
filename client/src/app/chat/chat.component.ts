@@ -40,8 +40,9 @@ export class ChatComponent implements OnInit {
 
   submit(): void {
     const trimmedMessage = this.message.trim();
+    const trimmedUsername = this.username.trim();
 
-    if (trimmedMessage !== '') {
+    if (trimmedMessage !== '' && trimmedUsername !== '') {
       
       if (!this.channelCreated()) {
         this.createNewChannel();
