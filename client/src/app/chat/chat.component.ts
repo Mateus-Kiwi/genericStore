@@ -18,20 +18,27 @@ export class ChatComponent implements OnInit {
   message = '';
   messages: ChatMessage[] = [];
   username = '';
+  static pusher: any; 
+  channel: any; 
   channels: string[] = [];
-
-  constructor(private http: HttpClient) { }
+  
+  constructor(private http: HttpClient) {
+    
+    if (!ChatComponent.pusher) {
+      Pusher.logToConsole = true;
+      ChatComponent.pusher = new Pusher('3cb19a1bd9a88a188c23', {
+        cluster: 'sa1'
+      });
+    }
+  }
 
   ngOnInit(): void {
-    Pusher.logToConsole = true;
-
-    const pusher = new Pusher('3cb19a1bd9a88a188c23', {
-      cluster: 'sa1'
-    });
-
-
-    const channel = pusher.subscribe(`suporte-${this.username}`);
-    channel.bind('message', (data: ChatMessage) => {
+    if(this.user != null){
+      this.username = this.user.displayName;
+    }
+    
+    this.channel = this.getOrCreateChannel(`suporte-${this.username}`);
+    this.channel.bind('message', (data: ChatMessage) => {
       this.messages.push(data);
     });
 
@@ -42,13 +49,9 @@ export class ChatComponent implements OnInit {
     const trimmedMessage = this.message.trim();
     const trimmedUsername = this.username.trim();
 
-    if (trimmedMessage !== '' && trimmedUsername !== '') {
-      
-      if (!this.channelCreated()) {
-        this.createNewChannel();
-      }
+    this.createNewChannel();
 
-      
+    if (trimmedMessage !== '' && trimmedUsername !== '') {
       this.http.post('https://localhost:5001/api/messages', {
         username: this.username,
         message: this.message
@@ -56,29 +59,21 @@ export class ChatComponent implements OnInit {
     }
   }
 
-  private channelCreated(): boolean {
-    
-    const channelName = `suporte-${this.username}`;
+  private channelCreated(channelName: string): boolean {
     return this.channels.includes(channelName);
   }
 
   private createNewChannel(): void {
-    
     const channelName = `suporte-${this.username}`;
 
-   
-    const pusher = new Pusher('3cb19a1bd9a88a188c23', {
-      cluster: 'sa1'
-    });
+    if (!this.channelCreated(channelName)) {
+      this.channel = this.getOrCreateChannel(channelName);
+      this.channels.push(channelName);
+      console.log(`Canal ${channelName} criado e pronto para mensagens.`);
+    }
+  }
 
-    const channel = pusher.subscribe(channelName);
-    channel.bind('message', (data: ChatMessage) => {
-      this.messages.push(data);
-    });
-
-    
-    this.channels.push(channelName);
-
-    console.log(`Canal ${channelName} criado e pronto para mensagens.`);
+  private getOrCreateChannel(channelName: string): any {
+    return ChatComponent.pusher.subscribe(channelName);
   }
 }
