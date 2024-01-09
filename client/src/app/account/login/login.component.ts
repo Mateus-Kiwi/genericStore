@@ -21,7 +21,10 @@ export class LoginComponent {
 
   onSubmit(){
     this.accountService.login(this.loginForm.value).subscribe({
-      next: () => this.router.navigateByUrl(this.returnUrl)
+      next: () => this.router.navigateByUrl(this.returnUrl).then(() => {
+        window.location.reload();
+      })
+      
     })
   }
 }

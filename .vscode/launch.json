@@ -1,6 +1,14 @@
 {
     "version": "0.2.0",
     "configurations": [
+        {
+            "name": "Angular",
+            "request": "launch",
+            "type": "chrome",
+            "url": "https://localhost:4200",
+            "webRoot": "${workspaceFolder}/client"
+        },
+
         
         {
             // Use IntelliSense to find out which attributes exist for C# debugging
@@ -34,3 +42,24 @@
         }
     ]
 }
+// {
+//     "version": "0.2.0",
+//     "configurations": [
+//       {
+//         "name": "Angular Debug",
+//         "type": "chrome",
+//         "request": "launch",
+//         "url": "https://localhost:4200",
+//         "webRoot": "${workspaceFolder}/client", // Substitua "client" pelo nome da pasta do seu projeto Angular
+//         "sourceMapPathOverrides": {
+//           "webpack:/*": "${webRoot}/*"
+//         }
+//       },
+//       {
+//         "name": ".NET Core Attach",
+//         "type": "coreclr",
+//         "request": "attach"
+//       }
+//     ]
+//   }
+  

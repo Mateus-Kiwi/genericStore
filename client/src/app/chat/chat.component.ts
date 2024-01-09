@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import Pusher from 'pusher-js';
 import { User } from '../models/user';
+import { jwtDecode } from 'jwt-decode';
 
 interface ChatMessage {
   username: string;
@@ -18,12 +19,12 @@ export class ChatComponent implements OnInit {
   message = '';
   messages: ChatMessage[] = [];
   username = '';
-  static pusher: any; 
-  channel: any; 
+  static pusher: any;
+  channel: any;
   channels: string[] = [];
-  
+
   constructor(private http: HttpClient) {
-    
+
     if (!ChatComponent.pusher) {
       Pusher.logToConsole = true;
       ChatComponent.pusher = new Pusher('3cb19a1bd9a88a188c23', {
@@ -33,19 +34,31 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.user != null){
-      this.username = this.user.displayName;
+
+
+  }
+
+  submit(): void {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      // Decodifica o token para obter informações do usuário
+      const decodedToken: any = jwtDecode(token);
+      
+      // Assuma que o token contém um campo 'displayName'
+      this.username = decodedToken.given_name;
+    } else {
+      this.username = ''
     }
-    
+
+
+
     this.channel = this.getOrCreateChannel(`suporte-${this.username}`);
     this.channel.bind('message', (data: ChatMessage) => {
       this.messages.push(data);
     });
 
     this.createNewChannel();
-  }
-
-  submit(): void {
     const trimmedMessage = this.message.trim();
     const trimmedUsername = this.username.trim();
 
