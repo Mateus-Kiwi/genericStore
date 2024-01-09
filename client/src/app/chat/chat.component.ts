@@ -34,31 +34,24 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
-  }
-
-  submit(): void {
     const token = localStorage.getItem('token');
 
     if (token) {
-      // Decodifica o token para obter informações do usuário
       const decodedToken: any = jwtDecode(token);
-      
-      // Assuma que o token contém um campo 'displayName'
+
       this.username = decodedToken.given_name;
     } else {
       this.username = ''
     }
 
-
-
     this.channel = this.getOrCreateChannel(`suporte-${this.username}`);
     this.channel.bind('message', (data: ChatMessage) => {
       this.messages.push(data);
     });
+  }
 
-    this.createNewChannel();
+  submit(): void {
+
     const trimmedMessage = this.message.trim();
     const trimmedUsername = this.username.trim();
 
