@@ -2,7 +2,6 @@ body {
     padding: 30px;
 }
 .chat{
-   
     position: fixed;
     bottom: 25px;
     right: 25px; 
@@ -12,6 +11,13 @@ body {
   align-items: center;
   justify-content: center;
 }
-.app-nav-bar {
-    position: relative;
-}
+
+
+@media (max-width: 800px) {
+    .chat {
+      display: none;
+    }
+    app-nav-bar {
+      display: none;
+    }
+  }

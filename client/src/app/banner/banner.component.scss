@@ -2,12 +2,16 @@
     position: relative;
     background-color: #e8cfac;
     overflow: hidden; 
-    min-height: 700px;
+    max-width: 100%;
+    height: auto;
+    
     max-height: 700px;
 }
 .cara-banner {
+    max-width: 25%;
+    height: auto;
     position: absolute;
-    min-height: 1200px;
+    
     z-index: 1;
     left: 1200px;
     top: 50px;
