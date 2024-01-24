@@ -16,6 +16,7 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { FormsModule } from '@angular/forms';
 import { ChatComponent } from './chat/chat.component';
 import { FooterComponent } from './footer/footer.component';
+import { NavTabMobileComponent } from './nav-tab-mobile/nav-tab-mobile.component';
 
 
 
@@ -25,6 +26,7 @@ import { FooterComponent } from './footer/footer.component';
     BannerComponent,
     ChatComponent,
     FooterComponent,
+    NavTabMobileComponent,
     
     
   ],

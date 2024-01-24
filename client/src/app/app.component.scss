@@ -1,23 +1,48 @@
 body {
-    padding: 30px;
+  padding: 30px;
 }
-.chat{
-    position: fixed;
-    bottom: 25px;
-    right: 25px; 
-    z-index: 1050;
-    border-radius: 10px;
-    display: flex;
+
+.chat {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1050;
+  border-radius: 10px;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.tab-div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  
+}
+
+.tab {
+  z-index: 2000;
+  position: fixed;
+  bottom: 25px;
+  width: 90%;
+  
+}
+
+.app-container {}
 
 @media (max-width: 800px) {
-    .chat {
-      display: none;
-    }
-    app-nav-bar {
-      display: none;
-    }
+  .chat {
+    display: none;
   }
+
+  app-nav-bar {
+    display: none;
+  }
+}
+
+@media (min-width: 800px) {
+  .tab {
+    display: none;
+  }
+
+}

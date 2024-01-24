@@ -1,14 +1,15 @@
 <div class="app-container">
-    <ngx-spinner type="cube-transition" size="default"></ngx-spinner>
-    <app-banner></app-banner>
-    <app-nav-bar></app-nav-bar>
-    <div class="content">
-      <router-outlet></router-outlet>
-    </div>
-    <div class="chat">
-      <app-chat></app-chat>
-    </div>
-    
-    <app-footer></app-footer>
+  <ngx-spinner type="cube-transition" size="default"></ngx-spinner>
+  <app-banner></app-banner>
+  <app-nav-bar></app-nav-bar>
+
+
+  <router-outlet class="content"></router-outlet>
+
+
+  <app-chat class="chat"></app-chat>
+  <div class="tab-div">
+    <app-nav-tab-mobile class="tab"></app-nav-tab-mobile>
   </div>
-  
+  <app-footer></app-footer>
+</div>

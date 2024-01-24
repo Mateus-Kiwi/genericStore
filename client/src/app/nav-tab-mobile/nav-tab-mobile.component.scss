@@ -1,0 +1,51 @@
+.nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 100%;
+   
+}
+nav a{
+    position: relative;
+    font-size: 2rem;
+    color: #787570;
+    text-decoration: none;
+    &.active {
+        color: #F6BF77;
+    }
+}
+nav a.active{
+    
+}
+
+nav .indicator {
+
+    position: absolute;
+    height: 10%;
+    bottom: 0;
+    
+    z-index: 0;
+    background-color: #F6BF77;
+    width: 20vw;
+    border-radius: 8rem;
+    transition: 0.5s;
+}
+
+nav a:nth-child(1).active ~ .indicator {
+    transform: translateX(27.5vw * -1);
+}
+nav a:nth-child(2).active ~ .indicator {
+    transform: translateX(30vw * 0);
+}
+nav a:nth-child(3).active ~ .indicator {
+    transform: translateX(27.5vw * 1);
+}
+
+body{
+    height: 4.5rem;
+    border-radius: 10rem;
+    background-color: #fbf3e1;
+    opacity: 95%;
+    box-shadow: 0px 7px 25px -10px rgba(69, 30, 3, 0.25); 
+}
